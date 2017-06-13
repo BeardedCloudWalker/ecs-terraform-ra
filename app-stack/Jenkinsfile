@@ -1,0 +1,31 @@
+node {
+  stage 'Checkout Application Code'
+    checkout scm
+######### Application Specific -- Modify to your needs ##########
+  stage 'Application Build/Test/Push to Repo Here'
+    echo 'Build App code'
+    echo 'Test App'
+    echo 'Build Docker Image'
+    echo 'Tag docker Image'
+    echo 'Push docker Image'
+
+  stage 'Update Task Definition with new Repo Tag'
+    echo 'Input Tag using sed or other method'
+
+  stage 'Check updated tag into Source Control'
+
+##################################################################
+Example is using sample repo
+#################################################################
+
+  stage 'Run Terraform Plan'
+    sh "terraform plan --out plan"
+
+  stage'Run Terraform Apply'
+    def deploy_authorization = input(
+            id: 'APPLY',
+            message: 'Approve Plan',
+            type: "boolean")
+    sh "terrafrom apply plan:
+
+}

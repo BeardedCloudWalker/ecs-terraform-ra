@@ -1,0 +1,292 @@
+{
+    "version": 3,
+    "terraform_version": "0.9.4",
+    "serial": 1,
+    "lineage": "0a3f56f7-f5a6-41af-b7ba-61d6c25c7c8e",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {
+                "url 1": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "dev-ecs-cluster-tf-1041377939.us-east-1.elb.amazonaws.com"
+                },
+                "url 2": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "dev-ecs-cluster-tf-1041377939.us-east-1.elb.amazonaws.com/products"
+                }
+            },
+            "resources": {
+                "aws_alb.ecs-alb": {
+                    "type": "aws_alb",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "arn:aws:elasticloadbalancing:us-east-1:558201170204:loadbalancer/app/dev-ecs-cluster-tf/5ca440cb6e2af467",
+                        "attributes": {
+                            "access_logs.#": "0",
+                            "arn": "arn:aws:elasticloadbalancing:us-east-1:558201170204:loadbalancer/app/dev-ecs-cluster-tf/5ca440cb6e2af467",
+                            "arn_suffix": "app/dev-ecs-cluster-tf/5ca440cb6e2af467",
+                            "dns_name": "dev-ecs-cluster-tf-1041377939.us-east-1.elb.amazonaws.com",
+                            "enable_deletion_protection": "false",
+                            "id": "arn:aws:elasticloadbalancing:us-east-1:558201170204:loadbalancer/app/dev-ecs-cluster-tf/5ca440cb6e2af467",
+                            "idle_timeout": "60",
+                            "internal": "false",
+                            "ip_address_type": "ipv4",
+                            "name": "dev-ecs-cluster-tf",
+                            "security_groups.#": "1",
+                            "security_groups.519292432": "sg-af4ef3d1",
+                            "subnets.#": "2",
+                            "subnets.1548989021": "subnet-c6c53c8e",
+                            "subnets.4293193304": "subnet-85a0a5de",
+                            "tags.%": "0",
+                            "vpc_id": "vpc-88301dee",
+                            "zone_id": "Z35SXDOTRQ7X7K"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_alb_listener.front_end": {
+                    "type": "aws_alb_listener",
+                    "depends_on": [
+                        "aws_alb.ecs-alb",
+                        "aws_alb_target_group.initial"
+                    ],
+                    "primary": {
+                        "id": "arn:aws:elasticloadbalancing:us-east-1:558201170204:listener/app/dev-ecs-cluster-tf/5ca440cb6e2af467/34212588917853ce",
+                        "attributes": {
+                            "arn": "arn:aws:elasticloadbalancing:us-east-1:558201170204:listener/app/dev-ecs-cluster-tf/5ca440cb6e2af467/34212588917853ce",
+                            "default_action.#": "1",
+                            "default_action.0.target_group_arn": "arn:aws:elasticloadbalancing:us-east-1:558201170204:targetgroup/tf-initial-alb-tg/03d1d68d0a085d1c",
+                            "default_action.0.type": "forward",
+                            "id": "arn:aws:elasticloadbalancing:us-east-1:558201170204:listener/app/dev-ecs-cluster-tf/5ca440cb6e2af467/34212588917853ce",
+                            "load_balancer_arn": "arn:aws:elasticloadbalancing:us-east-1:558201170204:loadbalancer/app/dev-ecs-cluster-tf/5ca440cb6e2af467",
+                            "port": "80",
+                            "protocol": "HTTP",
+                            "ssl_policy": ""
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_alb_target_group.initial": {
+                    "type": "aws_alb_target_group",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "arn:aws:elasticloadbalancing:us-east-1:558201170204:targetgroup/tf-initial-alb-tg/03d1d68d0a085d1c",
+                        "attributes": {
+                            "arn": "arn:aws:elasticloadbalancing:us-east-1:558201170204:targetgroup/tf-initial-alb-tg/03d1d68d0a085d1c",
+                            "arn_suffix": "targetgroup/tf-initial-alb-tg/03d1d68d0a085d1c",
+                            "deregistration_delay": "300",
+                            "health_check.#": "1",
+                            "health_check.0.healthy_threshold": "5",
+                            "health_check.0.interval": "30",
+                            "health_check.0.matcher": "200",
+                            "health_check.0.path": "/",
+                            "health_check.0.port": "traffic-port",
+                            "health_check.0.protocol": "HTTP",
+                            "health_check.0.timeout": "5",
+                            "health_check.0.unhealthy_threshold": "2",
+                            "id": "arn:aws:elasticloadbalancing:us-east-1:558201170204:targetgroup/tf-initial-alb-tg/03d1d68d0a085d1c",
+                            "name": "tf-initial-alb-tg",
+                            "port": "80",
+                            "protocol": "HTTP",
+                            "stickiness.#": "1",
+                            "stickiness.0.cookie_duration": "86400",
+                            "stickiness.0.enabled": "false",
+                            "stickiness.0.type": "lb_cookie",
+                            "tags.%": "0",
+                            "vpc_id": "vpc-88301dee"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_cloudwatch_log_group.ecs": {
+                    "type": "aws_cloudwatch_log_group",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "tf-ecs-group/Apps/ecs-agent-tf",
+                        "attributes": {
+                            "arn": "arn:aws:logs:us-east-1:558201170204:log-group:tf-ecs-group/Apps/ecs-agent-tf:*",
+                            "id": "tf-ecs-group/Apps/ecs-agent-tf",
+                            "name": "tf-ecs-group/Apps/ecs-agent-tf",
+                            "retention_in_days": "0",
+                            "tags.%": "0"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_ecs_cluster.ecs-cluster": {
+                    "type": "aws_ecs_cluster",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "arn:aws:ecs:us-east-1:558201170204:cluster/dev-ecs-cluster",
+                        "attributes": {
+                            "id": "arn:aws:ecs:us-east-1:558201170204:cluster/dev-ecs-cluster",
+                            "name": "dev-ecs-cluster"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_iam_instance_profile.ecs-container-instance": {
+                    "type": "aws_iam_instance_profile",
+                    "depends_on": [
+                        "aws_iam_role.ecs-container-instance"
+                    ],
+                    "primary": {
+                        "id": "dev-ecs-container-instance-tf",
+                        "attributes": {
+                            "arn": "arn:aws:iam::558201170204:instance-profile/dev-ecs-container-instance-tf",
+                            "id": "dev-ecs-container-instance-tf",
+                            "name": "dev-ecs-container-instance-tf",
+                            "path": "/",
+                            "roles.#": "1",
+                            "roles.506978964": "dev-ecs-container-instance-tf",
+                            "unique_id": "AIPAJ453VL3OESMPFUGGM"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_iam_role.ecs-container-instance": {
+                    "type": "aws_iam_role",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "dev-ecs-container-instance-tf",
+                        "attributes": {
+                            "arn": "arn:aws:iam::558201170204:role/dev-ecs-container-instance-tf",
+                            "assume_role_policy": "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+                            "create_date": "2017-05-18T11:53:24Z",
+                            "id": "dev-ecs-container-instance-tf",
+                            "name": "dev-ecs-container-instance-tf",
+                            "path": "/",
+                            "unique_id": "AROAILPTBW3KDRS23KEGW"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_iam_role.ecs-container-servicetask": {
+                    "type": "aws_iam_role",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "dev-ecs-container-servicetask-tf",
+                        "attributes": {
+                            "arn": "arn:aws:iam::558201170204:role/dev-ecs-container-servicetask-tf",
+                            "assume_role_policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"ecs-tasks.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+                            "create_date": "2017-05-18T11:53:24Z",
+                            "id": "dev-ecs-container-servicetask-tf",
+                            "name": "dev-ecs-container-servicetask-tf",
+                            "path": "/",
+                            "unique_id": "AROAJGCRU6GO3L4BOOL2Q"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_iam_role.ecs-service-scheduler": {
+                    "type": "aws_iam_role",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "dev-ecs-service-scheduler-tf",
+                        "attributes": {
+                            "arn": "arn:aws:iam::558201170204:role/dev-ecs-service-scheduler-tf",
+                            "assume_role_policy": "{\n  \"Version\": \"2008-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Principal\": {\n        \"Service\": \"ecs.amazonaws.com\"\n      },\n      \"Action\": \"sts:AssumeRole\"\n    }\n  ]\n}\n",
+                            "create_date": "2017-05-18T11:53:24Z",
+                            "id": "dev-ecs-service-scheduler-tf",
+                            "name": "dev-ecs-service-scheduler-tf",
+                            "path": "/",
+                            "unique_id": "AROAJPZGRJ3KV3Q2I36D4"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_iam_role_policy.ecs-container-instance": {
+                    "type": "aws_iam_role_policy",
+                    "depends_on": [
+                        "aws_iam_role.ecs-container-instance"
+                    ],
+                    "primary": {
+                        "id": "dev-ecs-container-instance-tf:dev-ecs-container-instance-tf",
+                        "attributes": {
+                            "id": "dev-ecs-container-instance-tf:dev-ecs-container-instance-tf",
+                            "name": "dev-ecs-container-instance-tf",
+                            "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"ecs:CreateCluster\",\n        \"ecs:DeregisterContainerInstance\",\n        \"ecs:DiscoverPollEndpoint\",\n        \"ecs:Poll\",\n        \"ecs:RegisterContainerInstance\",\n        \"ecs:StartTelemetrySession\",\n        \"ecs:Submit*\",\n        \"ecr:GetAuthorizationToken\",\n        \"ecr:BatchCheckLayerAvailability\",\n        \"ecr:GetDownloadUrlForLayer\",\n        \"ecr:BatchGetImage\",\n        \"logs:CreateLogStream\",\n        \"logs:PutLogEvents\"\n      ],\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+                            "role": "dev-ecs-container-instance-tf"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "aws_iam_role_policy.ecs-service-scheduler": {
+                    "type": "aws_iam_role_policy",
+                    "depends_on": [
+                        "aws_iam_role.ecs-service-scheduler"
+                    ],
+                    "primary": {
+                        "id": "dev-ecs-service-scheduler-tf:dev-ecs-service-scheduler-tf",
+                        "attributes": {
+                            "id": "dev-ecs-service-scheduler-tf:dev-ecs-service-scheduler-tf",
+                            "name": "dev-ecs-service-scheduler-tf",
+                            "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"ec2:AuthorizeSecurityGroupIngress\",\n        \"ec2:Describe*\",\n        \"elasticloadbalancing:DeregisterInstancesFromLoadBalancer\",\n        \"elasticloadbalancing:DeregisterTargets\",\n        \"elasticloadbalancing:Describe*\",\n        \"elasticloadbalancing:RegisterInstancesWithLoadBalancer\",\n        \"elasticloadbalancing:RegisterTargets\",\n        \"ecr:GetAuthorizationToken\",\n        \"ecr:BatchCheckLayerAvailability\",\n        \"ecr:GetDownloadUrlForLayer\",\n        \"ecr:BatchGetImage\"\n      ],\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+                            "role": "dev-ecs-service-scheduler-tf"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                },
+                "data.template_file.user_data_script": {
+                    "type": "template_file",
+                    "depends_on": [
+                        "aws_ecs_cluster.ecs-cluster"
+                    ],
+                    "primary": {
+                        "id": "7a4e8f76f0d1b7ec7c10be24853eca5cd73b24eccc30e1e6b8de8850943fbe40",
+                        "attributes": {
+                            "id": "7a4e8f76f0d1b7ec7c10be24853eca5cd73b24eccc30e1e6b8de8850943fbe40",
+                            "rendered": "#!/bin/bash \necho ECS_CLUSTER=\"dev-ecs-cluster\" \u003e /etc/ecs/ecs.config",
+                            "template": "#!/bin/bash \necho ECS_CLUSTER=\"${ecs_cluster_name}\" \u003e /etc/ecs/ecs.config",
+                            "vars.%": "1",
+                            "vars.ecs_cluster_name": "dev-ecs-cluster"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": ""
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
