@@ -2,7 +2,7 @@
 
 ## Discription
 
-This is a Multi-Stack Terraform implementation of a single ECS Cluster. The design is to have on Infrastructure stack and one or more Application stacks. The Infrastructure stack would contain the core infrastructure of the cluster, such as Autoscaling Groups, IAM Roles, Application Load Balancers, Etc. The Application stack would contain the ECS Service Definition and the ECS Task Definition. This can be added to and existing cluster configuration with new Services being added in conjunction with their corresponding resources in the Infrastructure stack. 
+This is a Multi-Stack Terraform implementation of a single ECS Cluster. The design is to have on Infrastructure stack and one or more Application stacks. The Infrastructure stack would contain the core infrastructure of the cluster, such as Autoscaling Groups, IAM Roles, Application Load Balancers, Etc. The Application stack would contain the ECS Service Definition and the ECS Task Definition. This can be added to and existing cluster configuration with new Services being added in conjunction with their corresponding resources in the Infrastructure stack.
 
 ------
 ## Philosophy
@@ -17,3 +17,8 @@ a ECS Cluster could be deployed simultaneously. if this occurred then the Terraf
 ## Use
 
 To use this framework, replace the VPC and ECR (or other repo) specific variables in the variable.tf file within each stack.
+
+------
+## Jenkins
+
+The Jenkinsfiles are provided as references
