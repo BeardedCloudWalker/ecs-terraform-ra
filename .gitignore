@@ -1,0 +1,6 @@
+.terraform.tfstate.*
+.terraform
+infra-stack/.terraform/*
+infra-stack/terraform.tfstate.*
+app-stack/.terraform/*
+app-stack/terraform.tfstate.*

@@ -1,0 +1,31 @@
+[
+  {
+    "cpu": 0,
+    "essential": true,
+    "image": "${image}",
+    "memory": 2048,
+    "name": "${name}",
+    "portMappings": [
+      {
+        "containerPort": 80
+      }
+    ],
+    "environment": [
+    {
+      "name": "${env_name}", 
+      "value": "${env_val}"
+    },
+{
+          "name": "MYSQL_ROOT_PASSWORD",
+          "value": "password"
+        }
+    ],
+     "logConfiguration": {
+         "logDriver": "awslogs",
+         "options": {
+             "awslogs-group": "${log_group_name}",
+             "awslogs-region": "${log_group_region}"
+         }
+     }
+  }
+]

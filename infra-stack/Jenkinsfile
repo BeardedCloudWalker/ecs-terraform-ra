@@ -1,0 +1,19 @@
+node {
+  stage 'Checkout'
+    checkout scm
+
+  stage 'Docker: Terraform Pull'
+    sh "docker pull ${terraformRepo}"
+
+
+  stage 'Run Terraform Plan'
+    sh "terraform plan --out plan"
+
+  stage'Run Terraform Apply'
+    def deploy_authorization = input(
+            id: 'APPLY',
+            message: 'Approve Plan',
+            type: "boolean")
+    sh "terrafrom apply plan:
+
+}
